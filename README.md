@@ -1,4 +1,4 @@
-# Run APSIM from CMD
+# Run APSIM from R
 
 # Requirements:
 - Install R and Apsim on your PC
