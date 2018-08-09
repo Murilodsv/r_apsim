@@ -1,0 +1,58 @@
+---
+title: "Agave Biomass Prediction"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+Global productivity model based on environmental productivity index (EPI) to assess potential of Agave as a bioenergy crop.
+ 
+## Model Description & Parameterization
+
+### Photosynthesis
+Yu wang's CAM photosynthesis model works at hourly time step separating day and night processes. However, She did not consider energy balance (i.e. leaf temperature and ambient temperature are same). There could be Temperature difference of >15 C. Thus it may be necessary to insert energy balance in the code. In addition, Yu'c code is in MATLAB this should be changed to C/C++ for scaling up in the BioCro framework.
+
+
+### Light Interception
+
+I need to address following issues  
+1. Open and well organized canopy (non-random).  
+2. Ability to simulate light environment on the two sides of a thick leaves.  
+
+Both issues are addressed by Yu using a 3D structure & ray tracer. However, I can not use it because of computational constraints & GPU ray tracer is not ready yet. I need to find some simple equations to simulate light interception. David did some work to replace ray tracer by statistical model. Also there are papers to simulate light interception by an individual apple tree. Nobel discussed analytical method to estimate light interception. 
+
+
+### Soil Water
+Issue related to water loss from two different sides of leaves. and linking it to soil hydrology module.
+
+
+### Biomass Partitioning
+
+I need to decide which cultivar to use. Sarah Davis has some experiments in Arizona and Nobel's book contains some data that can potentially be used for determining coefficients of biomass partitioning.
+
+
+## Model Validation
+I need to decide whether to include only one specific cultivar (used for calibration) or all available data and explain variability resulting from different cultivars.
+
+## Sensitivity Analysis
+Select a few locations where Agave could potentially be grown as a bioenenrgy crop.  
+sensitivity analyses w.r.t.  
+Photosynthesis traits.  
+Canopy or light interception.  
+Biomass Partitioning.   
+Soil Type.  
+Climate Variable (rainfall, RH, Wind speed, Temperature,Solar radiation)
+CO2.  
+
+## Conclusion
+A Model to predict yield and discuss ways to improve Agave that can be applied over a range of soil/climatic conditions.
+
+
+
+
